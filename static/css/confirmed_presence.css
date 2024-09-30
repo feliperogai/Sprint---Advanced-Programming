@@ -1,0 +1,124 @@
+/* confirmation.css */
+
+/* Reset de margem e padding para evitar inconsistências */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo básico do corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+/* Container principal da confirmação */
+.confirmation-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover no container */
+.confirmation-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo da imagem do logo */
+.confirmation-container img {
+    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+    height: 120px;
+}
+
+/* Estilo do título */
+.confirmation-container h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: rgb(122, 0, 230);
+}
+
+/* Estilo do parágrafo */
+.confirmation-container p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Estilo dos links */
+.confirmation-options a {
+    color: rgb(122, 0, 230);
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.confirmation-options a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: rgb(122, 0, 230);
+    transition: width 0.3s ease;
+    position: relative;
+    top: 5px;
+}
+
+.confirmation-options a:hover {
+    color: #1a1a1a;
+}
+
+.confirmation-options a:hover::after {
+    width: 100%;
+}
+
+/* Media Queries para responsividade */
+
+/* Ajustes para telas menores que 768px */
+@media (max-width: 768px) {
+    .confirmation-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .confirmation-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .confirmation-container p {
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para telas menores que 480px */
+@media (max-width: 480px) {
+    .confirmation-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .confirmation-container h2 {
+        font-size: 1.25rem;
+    }
+
+    .confirmation-container p {
+        font-size: 14px;
+    }
+}

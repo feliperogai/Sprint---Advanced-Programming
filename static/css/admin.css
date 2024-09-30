@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Estilo global da página */
+body {
+    margin: 0;
+    font-family: "Work Sans", sans-serif;
+    color: var(--text-color-dark);
+    background-color: var(--background-color);
+    padding-top: 30px; /* Espaço para o cabeçalho fixo */
+    box-sizing: border-box;
+}
+
+/* Estilo do header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #ffffff;
+    color: #333;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: background 0.3s ease; /* Efeito de transição ao mudar o fundo */
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente ao rolar */
+}
+
+/* Container do header */
+.header-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo do header */
+header img {
+    height: 60px;
+    margin-right: 20px;
+    transition: transform 0.3s; /* Efeito ao interagir com a logo */
+}
+
+header img:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente ao passar o mouse */
+}
+
+/* Título do header */
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+/* Estilo do menu hamburguer */
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+    position: relative;
+    z-index: 1100;
+    transition: transform 0.3s;
+}
+
+.menu-icon:hover {
+    transform: scale(1.1);
+}
+
+.menu-icon div {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: background-color 0.3s;
+}
+
+/* Menu Lateral */
+#side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    color: #333;
+    overflow-x: hidden;
+    padding-top: 60px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: width 0.3s;
+}
+
+#side-menu.open {
+    width: 250px;
+}
+
+#side-menu .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: #fff;
+    background-color: #7a00e6;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+#side-menu .closebtn:hover {
+    background-color: #8301f5;
+}
+
+#side-menu .user-info {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+#side-menu .user-info p {
+    margin: 0 0 10px;
+}
+
+#side-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #7a00e6;
+    display: block;
+    transition: background-color 0.3s, padding-left 0.3s;
+}
+
+#side-menu a:hover {
+    background-color: #f1f1f1;
+    padding-left: 30px;
+}
+
+/* Estilos para os tickets */
+#tickets-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os tickets se ajustem em várias linhas */
+    gap: 20px; /* Espaço entre os tickets */
+    margin-top: 20px;
+}
+
+.ticket {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(20% - 20px); /* Largura para cinco tickets por linha */
+    transition: box-shadow 0.3s ease, transform 0.2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ticket:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px); /* Efeito de levitação ao passar o mouse */
+}
+
+.ticket h3 {
+    margin: 0;
+    font-size: 1.2rem; /* Ajuste do tamanho da fonte */
+    color: #7a00e6;
+}
+
+.ticket p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.9rem; /* Ajuste do tamanho da fonte */
+}
+
+.ticket a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #7a00e6;
+    text-decoration: none;
+    font-weight: 500; /* Peso da fonte para destaque */
+}
+
+.ticket a:hover {
+    text-decoration: underline;
+    color: #6200b3;
+}
+
+/* Estilos para os controles de paginação */
+#pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#pagination-controls button {
+    padding: 12px 15px; /* Aumentado para conforto */
+    background: #7a00e6; /* Cor de fundo dos botões */
+    border: none;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.2s; /* Transições para hover */
+}
+
+#pagination-controls button:hover {
+    background: #6200b3; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de levitação */
+}
+
+/* Estilo para o modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica na tela toda */
+    z-index: 1000; /* Fica acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro com opacidade */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Margens superior e centralizada */
+    padding: 20px;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+    max-width: 600px; /* Largura máxima */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo para usuários que não completaram o treinamento */
+.usuario-nao-concluido {
+    color: red; /* Texto vermelho */
+    font-weight: bold; /* Negrito */
+}
+
+.usuario-container {
+    position: relative;
+}
+
+.usuario-list {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 10;
+}
+
+.usuario-list label {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.usuario-list label:hover {
+    background-color: #f0f0f0;
+}
+
+/* Estilo para o container geral */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 20px; /* Ajustado o padding superior para compensar a altura do header fixo */
+}
+
+/* Estilo para os formulários e seções */
+.form-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais forte */
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s; /* Transição para a sombra */
+}
+
+.form-section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra ao passar o mouse */
+}
+
+h2 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #7a00e6; /* Cor primária roxa */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%; /* Garantir que ambos ocupem 100% */
+    padding: 10px; /* Aumentado para conforto */
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    transition: border-color 0.3s; /* Transição para foco */
+}
+
+input:focus, select:focus {
+    border-color: #7a00e6; /* Mudança de cor ao focar */
+}
+
+.form-section button, .form-button button {
+    padding: 12px 15px; /* Aumentado para conforto */
+    background: #7a00e6; /* Cor de fundo dos botões */
+    border: none;
+    border-radius: 8px; /* Bordas mais arredondadas */
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: background 0.3s, transform 0.2s; /* Transições para hover */
+}
+
+.form-section button:hover, .form-button button:hover {
+    background: #6200b3; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de levitação */
+}
+
+/* Estilo para mensagens de confirmação */
+.confirmation-message {
+    color: #008000;
+    font-weight: bold;
+}
+
+/* Estilo para tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px; /* Aumentado para conforto */
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #f4f4f4;
+    font-weight: bold;
+}
+
+/* Estilo para controles de paginação */
+.pagination-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background: #7a00e6; /* Cor de fundo dos botões */
+    border-radius: 8px; /* Bordas mais arredondadas */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s; /* Transições para hover */
+}
+
+.pagination-controls button:disabled {
+    background: #e9ecef;
+    cursor: not-allowed;
+}
+
+.pagination-controls button:hover:not(:disabled) {
+    background: #8301f5; /* Cor de fundo ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de levitação */
+}
+
+/* Estilo para gráficos */
+#progressChart {
+    width: 100%;
+    height: 400px; /* Ajuste a altura conforme necessário */
+}
+
+/* Carregando */
+.loading {
+    display: none;
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0;
+    color: #7a00e6;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #7a00e6;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+/* Animações */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Nova animação para o modal */
+@keyframes slideIn {
+    from {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Queries para responsividade */
+
+/* Estilos para telas menores que 768px (tablets e smartphones) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        padding: 10px;
+        justify-content: space-between; /* Garante que o menu hamburguer fique alinhado à esquerda */
+    }
+
+    .menu-icon {
+        margin: 0;
+        order: 1; /* Garante que o menu hamburguer fique à esquerda */
+    }
+
+    header img {
+        height: 50px; /* Ajusta o tamanho da imagem */
+        margin-right: 10px; /* Ajusta a margem */
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+        margin-left: 10px; /* Ajusta a margem para que o título não fique colado à imagem */
+        flex: 2; /* Permite que o título ocupe mais espaço se necessário */
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-section button, .form-button button {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .pagination-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    table, th, td {
+        font-size: 0.875rem;
+    }
+
+    #grafico {
+        padding: 15px;
+    }
+}
+
+/* Estilos para telas menores que 390px (smartphones pequenos) */
+@media (max-width: 390px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start; /* Garante que os itens fiquem alinhados à esquerda */
+        padding: 10px;
+    }
+
+    .menu-icon {
+        margin: 0;
+        align-self: flex-start; /* Garante que o menu hamburguer fique alinhado ao topo */
+    }
+
+    header img {
+        margin-bottom: 10px;
+        width: 100px; /* Define uma largura fixa para evitar problemas de redimensionamento */
+        height: auto;
+    }
+
+    header h1 {
+        font-size: 1rem;
+        text-align: center;
+        margin-left: 0;
+        flex: none; /* Garante que o título não expanda e fique centralizado */
+    }
+
+    h2 {
+        font-size: 1.125rem;
+    }
+
+    .form-section button, .form-button button {
+        font-size: 0.875rem;
+        padding: 10px;
+    }
+
+    table, th, td {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+}
+/* Media Queries para responsividade */
+@media (max-width: 1024px) {
+    .ticket {
+        width: calc(25% - 20px); /* Largura para quatro tickets por linha */
+    }
+}
+
+@media (max-width: 768px) {
+    .ticket {
+        width: calc(33.33% - 20px); /* Largura para três tickets por linha */
+    }
+}
+
+@media (max-width: 480px) {
+    .ticket {
+        width: calc(50% - 20px); /* Largura para dois tickets por linha */
+    }
+}
+
+@media (max-width: 360px) {
+    .ticket {
+        width: 100%; /* Largura total para um ticket por linha */
+    }
+}
+
