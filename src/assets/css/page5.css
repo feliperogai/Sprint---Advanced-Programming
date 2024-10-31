@@ -225,6 +225,20 @@ main {
     background-color: var(--btn-background-hover);
     transform: translateY(-2px); /* Efeito de elevação ao passar o mouse */
 }
+.feedback {
+    display: none;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.feedback.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.feedback.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
 
 /* Responsividade */
 @media (max-width: 600px) {

@@ -116,14 +116,6 @@ p {
     font-weight: 700;
 }
 
-/* CSS para o botão posicionado no canto inferior direito */
-.button-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
 .action-button {
     display: inline-block;
     padding: 10px 20px;
